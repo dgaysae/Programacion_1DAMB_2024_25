@@ -1,4 +1,4 @@
-package unidad02.ejemplosClase;
+package unidad02;
 
 public class Condicionales01 {
 

@@ -1,4 +1,6 @@
-package unidad02.ejemplosClase;
+package unidad02;
+
+
 
 /**
  * Este programaasñl dfkjasñldj fsadflk jñasdf
