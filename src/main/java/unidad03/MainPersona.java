@@ -30,6 +30,8 @@ public class MainPersona {
         */
         System.out.println("--->>> " + Persona.EDAD_MINIMA);
         System.out.println("--->>> " + Persona.ESTATURA_MEDIA);
+        // Lo mismo ocurre con los métodos estáticos:
+        Persona.saludar();
 
         /*
         Aunque también puede verse desde el objeto, ya que en definitiva es
@@ -37,10 +39,14 @@ public class MainPersona {
         */
         Persona pers = new Persona("Pepe", "López Sánchez", 12, 1.90);
         System.out.println("--->>> " + pers.EDAD_MINIMA);
+        
+        pers.saludar();
 //        printDatosPersona(pers);
 //
 //        Persona pers1 = new Persona("Ana", "Jorl Norl", 1.50);
 //        printDatosPersona(pers1);
+
+        System.out.println("El valor absoluto de -7 es = " + Math.abs(-7));
         
     }
 

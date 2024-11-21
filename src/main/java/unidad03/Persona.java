@@ -5,7 +5,9 @@ package unidad03;
  * @author diego
  */
 public class Persona {
-    public static final int EDAD_MINIMA = 11;
+    
+    // Atributos de la clase
+    protected static final int EDAD_MINIMA = 11;
     public static final double ESTATURA_MEDIA = 1.50;
     
     private static int contadorPersonas = 0;
@@ -14,6 +16,7 @@ public class Persona {
     private int edad = 0;
     private double altura = 0;
     
+    // Constructores
     public Persona(String nombre,
             String apellidos,
             int edad,
@@ -44,6 +47,7 @@ public class Persona {
         this(nombre, apellidos, ESTATURA_MEDIA);
     }
     
+    // Getters / Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -98,4 +102,11 @@ public class Persona {
         return contadorPersonas;
     }
 
+    // Métodos
+    /**
+     * 
+     */
+    static public void saludar() {
+        System.out.println("Hola!!");
+    }
 }

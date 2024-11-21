@@ -23,5 +23,7 @@ public class MainCoche {
         System.out.println(c1.getRueda(3));
         System.out.println("Rueda 4 ----------------");
         System.out.println(c1.getRueda(4));
+        
+        Coche clonSuperficial = c1;
     }
 }

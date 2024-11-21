@@ -34,6 +34,10 @@ public class MainPersona {
         System.out.println(clonProfundidad);
         System.out.println(p1);
         
+        
+        boolean esInstanciade = p1 instanceof Object;
+        System.out.println("Persona es de tipo Object? - " + esInstanciade);
+        
     }
     
 }

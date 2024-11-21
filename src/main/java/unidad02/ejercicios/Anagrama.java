@@ -21,11 +21,32 @@ public class Anagrama {
     }
     
     public static boolean sonAnagramas(String palabra1, String palabra2) {
+        /**
+         * caracter se usa para guardar una letra de palabra1 en cada iteración
+         * del bucle.
+         * Ejemplo: si palabra1 = "cosa", caracter sería "c", luego "o", etc.
+         */
         String caracter;
+        
+        /**
+         * Cada vez que comprobemos un carácter, lo guardamos en esta variable.
+         * De esa forma luego sólo hay que comprobar si el caracter está aquí, lo
+         * que significa que ya lo hemos evaluado y no hay que volver a hacerlo.
+         */
         String caracteresEvaluados = "";
+        
+        /**
+         * Al tomar un carácter, comprobamos cuántas veces se repite en palabra1
+         * para luego ver si es el mismo número de repeticiones que en palabra2.
+         */
         int caracterSeRepite = 0;
+        
+        /**
+         * Irá indicando la posición de carácter a coger en cada iteración.
+         */
         int posicion = 0;
         
+        // ponemos ambas palabras en minúsculas para evitar el case-sensitive.
         palabra1 = palabra1.toLowerCase();
         palabra2 = palabra2.toLowerCase();
         
@@ -39,18 +60,26 @@ public class Anagrama {
         }
         
         /*
-         Iremos cogiendo caracter a caracter de la primera palabra e iremos 
-         contando cuántas veces se repite en dicha palabra.
+         Iremos cogiendo caracter a caracter en la primera palabra, evitando
+         que la posición no salga de los límites de la cadena de texto.
          */
         while (posicion < palabra1.length()) {
+            
+            // tomamos el caracter de la posición indicada:
             caracter = palabra1.substring(posicion, posicion + 1);
+
+
+            /*
+            Si el caracter ya ha sido evaluado, no hacemos nada y pasamos al
+            siguiente.
+            */
             if (!caracteresEvaluados.contains(caracter)) {
                 caracteresEvaluados += caracter;
+                
+                // Cuenta las veces que se repite en palabra1:
                 caracterSeRepite = contarLetra(palabra1, caracter);
                 
-                /*
-                Luego veremos si se repite las mismas veces en la otra palabra:
-                */
+                // Si se repite las mismas veces en la palabra2...
                 if (caracterSeRepite != contarLetra(palabra2, caracter)) {
                     return false;
                 }
