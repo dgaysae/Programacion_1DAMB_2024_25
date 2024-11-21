@@ -61,7 +61,7 @@ public class Anagrama {
         
         /*
          Iremos cogiendo caracter a caracter en la primera palabra, evitando
-         que la posición no salga de los límites de la cadena de texto.
+         que la posición salga de los límites de la cadena de texto.
          */
         while (posicion < palabra1.length()) {
             
