@@ -26,6 +26,8 @@ public class Ejercicio02 {
         else {
             System.out.println("ERROR! No se puede calcular la raiz cuadrada de un número negativo.");
         }
+
+        entradaTeclado.close();
         
     }
     

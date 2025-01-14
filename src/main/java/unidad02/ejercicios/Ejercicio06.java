@@ -30,6 +30,8 @@ public class Ejercicio06 {
         else {
             System.out.println("No están ordenados de menor a mayor");
         }
+
+        entradaTeclado.close();
     }
     
     public static int leerEnteroDeTeclado() {

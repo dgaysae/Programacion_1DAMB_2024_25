@@ -44,6 +44,7 @@ public class Ejercicio05 {
             System.out.println("No hay parte decimal");
         }
 
+        entradaTeclado.close();
     }
 
     public static double leerNumeroDeTeclado() {

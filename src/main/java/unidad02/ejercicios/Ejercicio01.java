@@ -29,6 +29,8 @@ public class Ejercicio01 {
         
         int suma = leerEnteroDeTeclado() + leerEnteroDeTeclado();
         System.out.println("Suma = " + suma);
+
+        entradaTeclado.close();
         
     }
     

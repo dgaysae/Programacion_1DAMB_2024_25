@@ -29,7 +29,7 @@ public class Ejercicio03 {
             System.out.printf("%d - %d = %d \n", b, a, resta);
         }
         
-        
+        entradaTeclado.close();
     }
 
     /**
