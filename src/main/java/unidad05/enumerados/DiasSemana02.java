@@ -1,7 +1,9 @@
 package unidad05.enumerados;
 
 /**
- * 
+ * La diferencia con el ejemplo anterior es que aquí todas las constantes las
+ * englobamos en el enum DiasSemana.
+ * @see DiasSemana
  * @author diego
  */
 public class DiasSemana02 {
@@ -24,7 +26,16 @@ public class DiasSemana02 {
         
         
     }
-    
+
+    /**
+     * @deprecated
+     * Este método no sería necesario, ya que podemos obtener el nombre
+     * del día mediante el método getNombre() del enum.
+     *
+     * @param dia Día de la semana a evaluar.
+     * @return Nombre del día introducido.
+     */
+    @Deprecated
     public static String getNombreDia(DiasSemana dia) {
         switch (dia) {
             case LUNES:
