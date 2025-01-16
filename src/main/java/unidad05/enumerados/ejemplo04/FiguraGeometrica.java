@@ -1,4 +1,4 @@
-package unidad05.enumerados.ejemplo03;
+package unidad05.enumerados.ejemplo04;
 
 public enum FiguraGeometrica {
     CIRCUNFERENCIA(1) {
@@ -55,4 +55,33 @@ public enum FiguraGeometrica {
     }
 
     public abstract double calcularArea(double... dimensiones);
+    // También puede definirse de esta otra forma:
+    // public abstract double calcularArea(double[] dimensiones);
+
+    /**
+     * Este método no tiene sentido, ya que podría aplicarlo a cualquier
+     * figura geométrica del enum (círculo, rectángulo, etc.).
+     * Además, no tiene sentido crear una función por cada constante.
+     * @param lado
+     * @return
+     * @deprecated
+     */
+    @Deprecated
+    public double calcularSuperficieCuadrado(double lado) {
+        return lado * lado;
+    }
+
+    /**
+     * Este método no tiene sentido, ya que podría aplicarlo a cualquier
+     * figura geométrica del enum (círculo, rectángulo, etc.).
+     * Además, no tiene sentido crear una función por cada constante.
+     * @param base
+     * @param altura
+     * @return
+     * @deprecated
+     */
+    @Deprecated
+    public double calcularSuperficieRectangulo(double base, double altura) {
+        return base * altura;
+    }
 }
