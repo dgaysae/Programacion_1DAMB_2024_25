@@ -28,9 +28,9 @@ public class Equipo {
         if (getClass() != o.getClass()) return false;
         
         final Equipo otro = (Equipo) o;
-        if (!this.ciudad.equals(otro.ciudad)) return false;
-        
-        return this.nombre.equals(otro.nombre);
+
+        return this.ciudad.equals(otro.ciudad)
+                && this.nombre.equals(otro.nombre);
     }
     
     
