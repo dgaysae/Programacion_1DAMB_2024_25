@@ -1,4 +1,4 @@
-package unidad05.listasEnlazadas;
+package unidad05.estructurasDinamicas.listasEnlazadas;
 
 /**
  * 

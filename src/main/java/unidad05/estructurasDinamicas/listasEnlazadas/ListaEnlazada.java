@@ -1,11 +1,15 @@
-package unidad05.listasEnlazadas;
+package unidad05.estructurasDinamicas.listasEnlazadas;
 
 /**
- * 
+ * Una lista enlazada tiene como unidad de información un nodo, compuesto de una zona para datos y otra
+ * para un puntero que apunte al siguiente nodo.
  * @author diego
  */
 public class ListaEnlazada {
-    
+
+    /**
+     * Clase interna (inner class)
+     */
     class Nodo {
         int dato;
         Nodo siguiente;
@@ -16,7 +20,11 @@ public class ListaEnlazada {
     public boolean isEmpty() {
         return (lista == null);
     }
-    
+
+    /**
+     * Inserta un nuevo elemento al principio de la lista.
+     * @param nuevoNumero Número a insertar.
+     */
     public void insert(int nuevoNumero) {
         Nodo nuevoNodo = new Nodo();
         nuevoNodo.dato = nuevoNumero;
@@ -29,7 +37,31 @@ public class ListaEnlazada {
             lista = nuevoNodo;
         }
     }
-    
+
+    /**
+     * TODO: Añade un nuevo número al final de la lista.
+     * @param nuevoNumero
+     */
+    public void add(int nuevoNumero) {
+
+    }
+
+    /**
+     * TODO: Borra la primera ocurrencia que encuentra en la lista.
+     * @param numeroABorrar
+     */
+    public void remove(int numeroABorrar) {
+
+    }
+
+    /**
+     * TODO: Borra el dato de la posición indicada.
+     * @param posicion Posición del dato a borrar.
+     */
+    public void removeAt(int posicion) {
+
+    }
+
     /**
      * Se puede implementar un contador como otra propiedad de ListaEnlazada
      * y que se actualice (incremente/decremente) cada vez que se añadan o se
