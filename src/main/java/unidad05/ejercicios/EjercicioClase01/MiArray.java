@@ -34,6 +34,14 @@ public class MiArray {
     }
 
     /**
+     * TODO: este constructor creará el array interno con la longitud indicada y lo rellenará con el número introducido.
+     * @param length
+     */
+    public MiArray(int length, int numeroRelleno) {
+
+    }
+
+    /**
      * Crea el array con el tamaño que indique el usuario por teclado.
      */
     private void setArray() {
@@ -141,6 +149,101 @@ public class MiArray {
     }
 
     /**
+     * TODO: implementa este método que obtiene el menor de los números del array.
+     * @return
+     */
+    public int min() {
+        return 0;
+    }
+
+    /**
+     * TODO: implementa este método que obtiene la media aritmética de los números del array.
+     * @return
+     */
+    public double media() {
+        return 0.0;
+    }
+
+    /**
+     * TODO: implementa este método que devuelve un valor aleatorio del array.
+     * @return
+     */
+    public int getRandom() {
+        return 0;
+    }
+
+    /**
+     * Crea otro array de mayor tamaño en el que se copian los valores del
+     * original.
+     * Después se referencia el original a ese nuevo array.
+     */
+    public void aumentarLength() {
+        int[] arrayAux = new int[array.length + LENGTH_INCREMENTO];
+        for (int i = 0; i < arrayLength; i++) {
+            arrayAux[i] = array[i];
+        }
+        array = arrayAux;
+        System.out.println("El array ha aumentado su tamaño:");
+        System.out.println(Arrays.toString(array));
+    }
+
+    /**
+     * TODO: implementa este método. Si lo ves conveniente, refactoriza otros métodos que ya tengas implementados para hacerlo más óptimo.
+     * Inserta en el array el número introducido en la posición indicada.
+     * @param posicion donde se insertará el número.
+     * @param numeroAInsertar valor a insertar.
+     */
+    public void insertarEn(int posicion, int numeroAInsertar) {
+
+    }
+
+    /**
+     * TODO: implementa este método para que borre la posición que se le ha indicado. Esto supone que los elementos
+     * posteriores deben desplazarse hacia atrás.
+     * @param posicion
+     */
+    public void borrar(int posicion) {
+
+    }
+
+    /**
+     * TODO: implementa este método para que borre las posiciones entre desde (incluida) y hasta (excluida).
+     * Esto supone que los elementos posteriores deben desplazarse hacia atrás.
+     * Si hasta sobrepasa el límite, se borrarán todos los elementos desde la posición desde.
+     * @param desde
+     * @param hasta
+     */
+    public void borrar(int desde, int hasta) {
+
+    }
+
+    /**
+     * TODO: implementa este método para que borre todos los elementos desde la posición indicada hasta el final.
+     * @param posicion
+     */
+    public void borrarDesde(int posicion) {
+
+    }
+
+    /**
+     * TODO: implementa este método para ejecutarlo en los métodos que creas oportunos. Se encargará de comprobar si
+     * el array interno tiene posiciones vacías. Si tiene más de 10 posiciones vacías, las eliminará dejando solamente
+     * 5 posiciones libres.
+     */
+    private void garbageCollector() {
+
+    }
+
+    /**
+     * TODO: implementa este método para mostrar el contenido de los elementos de esta estructura.
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "";
+    }
+
+    /**
      * Pide la entrada de un número por teclado.
      * @param msg Mensaje que se muestra por pantalla
      * @return Número introducido por teclado
@@ -164,31 +267,4 @@ public class MiArray {
 
         return numero;
     }
-
-    /**
-     * Crea otro array de mayor tamaño en el que se copian los valores del
-     * original.
-     * Después se referencia el original a ese nuevo array.
-     */
-    public void aumentarLength() {
-        int[] arrayAux = new int[array.length + LENGTH_INCREMENTO];
-        for (int i = 0; i < arrayLength; i++) {
-            arrayAux[i] = array[i];
-        }
-        array = arrayAux;
-        System.out.println("El array ha aumentado su tamaño:");
-        System.out.println(Arrays.toString(array));
-    }
-
-    /**
-     * TODO: implementa este método. Si lo ves conveniente, refactoriza otros métodos que ya tengas implementados para hacerlo más óptimo.
-     * Inserta en el array un número en la posición indicada.
-     * @param posicion donde se insertará el número.
-     * @param numeroAInsertar valor a insertar.
-     */
-    public void insertarEn(int posicion, int numeroAInsertar) {
-
-    }
-
-
 }
