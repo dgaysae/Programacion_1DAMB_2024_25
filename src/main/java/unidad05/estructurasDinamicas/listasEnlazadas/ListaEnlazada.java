@@ -37,21 +37,21 @@ public class ListaEnlazada {
             lista = nuevoNodo;
         }
     }
-
-    /**
-     * TODO: Añade un nuevo número al final de la lista.
-     * @param nuevoNumero
-     */
-    public void add(int nuevoNumero) {
-
-    }
-
-    /**
-     * TODO: Borra la primera ocurrencia que encuentra en la lista.
-     * @param numeroABorrar
-     */
-    public void remove(int numeroABorrar) {
-
+    
+    public void add(int numeroAlFinal) {
+        Nodo nuevoNodo = new Nodo();
+        nuevoNodo.dato = numeroAlFinal;
+        
+        if (isEmpty()) {
+            lista = nuevoNodo;
+        }
+        else {
+            Nodo nodoAux = lista;
+            while(nodoAux.siguiente != null) {
+                nodoAux = nodoAux.siguiente;
+            }
+            nodoAux.siguiente = nuevoNodo;
+        }
     }
 
     /**
@@ -91,6 +91,5 @@ public class ListaEnlazada {
             System.out.println(nodoAux.dato);
             nodoAux = nodoAux.siguiente;
         } while (nodoAux != null);
-        
     }
 }
