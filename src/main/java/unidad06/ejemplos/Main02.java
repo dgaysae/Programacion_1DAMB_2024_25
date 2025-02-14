@@ -3,6 +3,13 @@ package unidad06.ejemplos;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Vamos a usar un FlowLayout para que los componentes se distribuyan de la misma forma en que escribimos:
+ * de izquierda a derecha y, cuando no caben más, pasan a la línea siguiente.
+ *
+ * IMPORTANTE: objserva cómo se crea y se añade un menú en una ventana.
+ * @author diego
+ */
 public class Main02 {
     public static void main(String[] args) {
         JFrame ventana = new JFrame("Ventana con componentes");
