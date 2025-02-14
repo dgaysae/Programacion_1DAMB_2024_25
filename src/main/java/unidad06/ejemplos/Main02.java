@@ -7,7 +7,7 @@ import java.awt.*;
  * Vamos a usar un FlowLayout para que los componentes se distribuyan de la misma forma en que escribimos:
  * de izquierda a derecha y, cuando no caben más, pasan a la línea siguiente.
  *
- * IMPORTANTE: objserva cómo se crea y se añade un menú en una ventana.
+ * IMPORTANTE: observa cómo se crea y se añade un menú en una ventana.
  * @author diego
  */
 public class Main02 {
