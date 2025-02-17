@@ -17,7 +17,7 @@ public class PanelVertical extends JPanel {
             JComponent... componentes
     ) {    
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        for(JComponent componente : componentes) {
+        for (JComponent componente : componentes) {
             this.add(componente);
             this.add(Box.createRigidArea(new Dimension(0, 5)));
         }        

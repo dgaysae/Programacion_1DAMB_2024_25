@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Permite mostrar distintos paneles uno sobre otro, como un conjunto de tarjeta.
+ * Permite mostrar distintos paneles uno sobre otro, como un conjunto de tarjetas.
  * @author diego
  */
 public class Main05 {
