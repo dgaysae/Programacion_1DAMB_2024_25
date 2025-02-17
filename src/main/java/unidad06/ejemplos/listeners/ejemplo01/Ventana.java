@@ -1,4 +1,4 @@
-package unidad06.ejemplos.listeners;
+package unidad06.ejemplos.listeners.ejemplo01;
 
 import java.awt.FlowLayout;
 import javax.swing.JButton;

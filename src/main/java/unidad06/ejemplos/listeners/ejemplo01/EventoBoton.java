@@ -1,4 +1,4 @@
-package unidad06.ejemplos.listeners;
+package unidad06.ejemplos.listeners.ejemplo01;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

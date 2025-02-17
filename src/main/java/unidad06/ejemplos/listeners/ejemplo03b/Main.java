@@ -1,4 +1,4 @@
-package unidad06.ejemplos.listeners;
+package unidad06.ejemplos.listeners.ejemplo03b;
 
 /**
  * 
@@ -7,7 +7,7 @@ package unidad06.ejemplos.listeners;
 public class Main {
     public static void main(String[] args) {
         
-        Ventana ventana = new Ventana(null);
+        new Ventana("Otro ejemplo");
         
     }
 }
