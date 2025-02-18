@@ -8,9 +8,10 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Personas modelPersonas = new Personas();
-        ViewPersonas viewPersonas = new ViewPersonas();
-        ControllerPersonas controllerPersonas = new ControllerPersonas(viewPersonas, modelPersonas);
+        new ControllerPersonas(
+                new ViewPersonas(),
+                new Personas()
+        );
 
     }
 }

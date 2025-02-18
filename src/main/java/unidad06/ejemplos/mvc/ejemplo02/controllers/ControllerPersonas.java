@@ -26,15 +26,15 @@ public class ControllerPersonas {
     
     private void loadColumnNames() {
         String[] columnNames = Personas.getColumnNames();
-        for (int i = 0; i < columnNames.length; i++) {
-            view.defaultModel.addColumn(columnNames[i]);
+        for (String columnName : columnNames) {
+            view.defaultModel.addColumn(columnName);
         }
     }
 
     private void loadDataRows() {
         ArrayList<Persona> listPersonas = model.getPersonas();
-        for (int i = 0; i < listPersonas.size(); i++){
-            Object[] fila = getDataRow(listPersonas.get(i));
+        for (Persona listPersona : listPersonas) {
+            Object[] fila = getDataRow(listPersona);
             view.defaultModel.addRow(fila);
         }
     }
