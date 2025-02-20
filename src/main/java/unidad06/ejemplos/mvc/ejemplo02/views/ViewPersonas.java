@@ -1,39 +1,66 @@
 package unidad06.ejemplos.mvc.ejemplo02.views;
 
 import java.awt.BorderLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author diego
+ */
 public class ViewPersonas extends JFrame {
-
-    public JTable tabla;
-    public DefaultTableModel defaultModel;
-    public JButton bt_Add;
-    public JButton bt_Remove;
-    public JButton bt_Salir;
-
-    public ViewPersonas() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(100, 100);
-        setSize(500, 500);
-        getContentPane().setLayout(new BorderLayout());
-        
-        bt_Add = new JButton("Añadir");
-        bt_Remove = new JButton("Borrar");
-        bt_Salir = new JButton("Salir");
-        JPanel panelBotones = new VerticalPanel(bt_Add, bt_Remove, bt_Salir);
-        getContentPane().add(panelBotones, BorderLayout.EAST);
-        
-        // Creo el modelo que actualizará la tabla y lo asocio a ella
-        defaultModel = new DefaultTableModel();
-        tabla = new JTable(defaultModel);
-        JScrollPane scroll = new JScrollPane(tabla);
-        
-        getContentPane().add(scroll, BorderLayout.CENTER);
+    JMenuBar mbBarraMenu;
+    JMenu mArchivo, mEdicion;
+    JMenuItem miAbrir, miGuardar, miSalir;
+    JMenuItem miBuscar, miSeleccionar;
+    
+    JTable tabla;
+    DefaultTableModel tableModel;
+            
+    public ViewPersonas(String title) {
+        setTitle(title);
+        setViewProperties();
+        setViewMenu();
+    }
+    
+    public JMenuItem getMenuItemSalir() {
+        return miSalir;
     }
 
+    private void setViewProperties() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 200);
+        setLayout(new BorderLayout());
+    }
+
+    private void setViewMenu() {
+        mbBarraMenu = new JMenuBar();
+        
+        mArchivo = new JMenu("Archivo");
+        miAbrir = new JMenuItem("Abrir");
+        miGuardar = new JMenuItem("Guardar");
+        miSalir = new JMenuItem("Salir");
+        miSalir.setActionCommand("acExit");
+        
+        mArchivo.add(miAbrir);
+        mArchivo.add(miGuardar);
+        mArchivo.add(miSalir);
+        
+        mEdicion = new JMenu("Edición");
+
+        miBuscar = new JMenuItem("Buscar");
+        miSeleccionar = new JMenuItem("Seleccionar");
+        
+        mEdicion.add(miBuscar);
+        mEdicion.add(miSeleccionar);
+
+        mbBarraMenu.add(mArchivo);
+        mbBarraMenu.add(mEdicion);
+        
+        setJMenuBar(mbBarraMenu);
+    }
 }
