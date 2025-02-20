@@ -1,4 +1,4 @@
-package unidad06.ejemplos;
+package unidad06.ejemplos.componentes;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -10,12 +10,12 @@ import javax.swing.JFrame;
  * Ejemplo de combobox
  * @author diego
  */
-public class Main04 implements ActionListener {
+public class Main04ComboBox implements ActionListener {
     JFrame ventana;
     JComboBox listaDesplegable01;
     JComboBox listaDesplegable02;
     
-    public Main04() {
+    public Main04ComboBox() {
         ventana = new JFrame("Ejemplo de JTabbedPane");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setSize(300, 300);
@@ -36,7 +36,7 @@ public class Main04 implements ActionListener {
     }
     
     public static void main(String[] args) {
-        Main04 miPrograma = new Main04();
+        Main04ComboBox miPrograma = new Main04ComboBox();
         
     }
 

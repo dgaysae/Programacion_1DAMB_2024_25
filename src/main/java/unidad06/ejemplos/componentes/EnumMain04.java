@@ -1,4 +1,4 @@
-package unidad06.ejemplos;
+package unidad06.ejemplos.componentes;
 
 /**
  *

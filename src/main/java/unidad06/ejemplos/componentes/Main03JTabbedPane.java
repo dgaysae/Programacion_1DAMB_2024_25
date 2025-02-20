@@ -1,11 +1,11 @@
-package unidad06.ejemplos;
+package unidad06.ejemplos.componentes;
 
 import javax.swing.*;
 
 /**
  * Podemos poner pestañas en nuestra aplicación con el control JTabbedPane.
  */
-public class Main03 {
+public class Main03JTabbedPane {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Ejemplo de JTabbedPane");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

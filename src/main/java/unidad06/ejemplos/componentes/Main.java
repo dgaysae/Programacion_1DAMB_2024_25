@@ -1,9 +1,9 @@
-package unidad06.ejemplos;
+package unidad06.ejemplos.componentes;
 
 import javax.swing.JFrame;
 
 /**
- *
+ * Ejemplo de ventana.
  * @author diego
  */
 public class Main {
