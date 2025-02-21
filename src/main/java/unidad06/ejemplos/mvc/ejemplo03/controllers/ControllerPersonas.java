@@ -36,16 +36,19 @@ public class ControllerPersonas {
     }
 
     private void setEventComponents() {
-        ControllerPersonasEvents eventos = new ControllerPersonasEvents(view, model);
+        ControllerPersonasEvents eventos = new ControllerPersonasEvents(view, model, this);
         
         view.getBtAdd().addActionListener(eventos);
         view.getBtRemove().addActionListener(eventos);
         view.getBtExit().addActionListener(eventos);
     }
 
-    private void loadDataTable() {
+    protected void loadDataTable() {
         ArrayList<Persona> personas = model.getPersonas();
         DefaultTableModel tableModel = (DefaultTableModel) view.getTable().getModel();
+        
+        // Vaciamos la tabla antes de cargarla:
+        tableModel.setRowCount(0);
         
         for (Persona persona : personas) {
             tableModel.addRow(persona.getDataRow());

@@ -27,8 +27,12 @@ public class Personas {
     
     public String[] getPersonaColumnNames() {
         return new String[]{
-            "Nombre", "Apellido1", "Apellido2", "Altura", "Edad"
+            "Nombre", "Apellido1", "Apellido2", "DNI", "Edad"
         };
+    }
+    
+    public void remove(int index) {
+        personas.remove(index);
     }
 
     private void loadData() {
@@ -47,11 +51,20 @@ public class Personas {
                             nombres.get(random.nextInt(nombres.size())),
                             apellidos.get(random.nextInt(apellidos.size())),
                             apellidos.get(random.nextInt(apellidos.size())),
-                            random.nextDouble(1.50, 1.99),
+                            getRandomDni(),
                             random.nextInt(15, 99)
                     )
             );
         }
         System.out.println("PERSONAS: " + personas);
+    }
+    
+    private String getRandomDni() {
+        Random random = new Random();
+        String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String dni = Integer.toString(random.nextInt(10000000, 99999999));
+        int posicionLetra = random.nextInt(0, letras.length());
+        Character letra = letras.charAt(posicionLetra);
+        return dni + letra;
     }
 }
