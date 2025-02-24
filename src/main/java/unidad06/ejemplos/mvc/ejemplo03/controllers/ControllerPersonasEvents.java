@@ -2,6 +2,9 @@ package unidad06.ejemplos.mvc.ejemplo03.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import unidad06.ejemplos.mvc.ejemplo03.model.Personas;
@@ -34,10 +37,7 @@ public class ControllerPersonasEvents implements ActionListener {
         }
         else if (ae.getActionCommand().equals("acRemove")) {
             if (isRowSelected()) {
-                int indice = view.getTable().getSelectedRow();
-                model.remove(indice);
-                controller.loadDataTable();
-                
+                deleteSelectedRows();
             }
         }
     }
@@ -52,5 +52,12 @@ public class ControllerPersonasEvents implements ActionListener {
         }
         return true;
     }
-    
+
+    private void deleteSelectedRows() {
+        int[] indices = view.getTable().getSelectedRows();
+        for (int i = indices.length - 1; i >= 0; i--) {
+            model.remove(i);
+        }
+        controller.loadDataTable();
+    }
 }
