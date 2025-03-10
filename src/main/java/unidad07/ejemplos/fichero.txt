@@ -1,0 +1,5 @@
+Esto es un fichero de prueba.
+Esta es la primera línea.
+Esta es la segunda línea.
+Esta es la tercera línea.
+Esta es la última línea.
