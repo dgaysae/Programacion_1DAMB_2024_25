@@ -12,22 +12,15 @@ public class Main04b {
 
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));) {
-            // Solicitar al usuario que ingrese su nombre
-            System.out.print("Por favor, ingresa tu nombre: ");
-            String nombre = reader.readLine(); // Leer una línea de texto
 
-            // Solicitar al usuario que ingrese su edad
-            System.out.print("Ahora, ingresa tu edad: ");
-            String edadStr = reader.readLine(); // Leer otra línea de texto
+            String entradaNombre = leerDeTeclado(reader, "Por favor, ingresa tu nombre: ");
+            String entradaEdad = leerDeTeclado(reader, "Ahora, ingresa tu edad: ");
 
-            // Convertir la edad de String a int
-            int edad = Integer.parseInt(edadStr);
+            int edad = Integer.parseInt(entradaEdad);
 
-            // Mostrar la información ingresada por el usuario
-            System.out.println("\n¡Hola, " + nombre + "!");
+            System.out.println("\n¡Hola, " + entradaNombre + "!");
             System.out.println("Tienes " + edad + " años.");
 
-            // Verificar si el usuario es mayor de edad
             if (edad >= 18) {
                 System.out.println("Eres mayor de edad.");
             } else {
@@ -36,7 +29,18 @@ public class Main04b {
         } catch (IOException e) {
             System.out.println("Ocurrió un error al leer la entrada: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("Error: La edad debe ser un número válido.");
+            System.out.println("Error: la edad debe ser un número válido.");
+        } catch (Exception e) {
+            System.out.println("Error!!");
+        }
+    }
+
+    public static String leerDeTeclado(BufferedReader lectorTeclado, String msg) {
+        System.out.print(msg);
+        try {
+            return lectorTeclado.readLine();
+        } catch (IOException e) {
+            return "";
         }
     }
 }
