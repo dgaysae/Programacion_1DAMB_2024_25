@@ -1,4 +1,4 @@
-package unidad07.ejemplos;
+package unidad07.wrappers;
 
 public class Wrappers {
 
