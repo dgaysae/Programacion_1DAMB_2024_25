@@ -1,7 +1,7 @@
 package unidad07.clasesInternas;
 
-import unidad07.clasesAnonimas.Boton;
-import unidad07.clasesAnonimas.EventoBoton;
+import unidad07.clasesAnonimas.ejemplo01.Boton;
+import unidad07.clasesAnonimas.ejemplo01.EventoBoton;
 
 public class Main {
     public static void main(String[] args) {

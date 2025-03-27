@@ -1,0 +1,55 @@
+package unidad08.ejercicios;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+/**
+ * Copiar el texto del fichero en otro invirtiendo el orden de las lineas
+ *
+ * @author diego
+ */
+public class Ejercicio03a {
+
+    public static void main(String[] args) {
+        BufferedReader leerDeFichero = null;
+        PrintWriter escribirEnFichero = null;
+        try {
+            leerDeFichero = new BufferedReader(new FileReader("./fichero.txt"));
+            escribirEnFichero = new PrintWriter(new FileWriter("./fichero_COPIA.txt", true));
+
+            ArrayList<String> lineas = new ArrayList<>();
+            String linea = "";
+
+            while ((linea = leerDeFichero.readLine()) != null) {
+                lineas.add(linea);
+            }
+
+            for (int i = lineas.size() - 1; i >= 0; i--) {
+                escribirEnFichero.print(lineas.get(i) + "\n");
+            }
+
+            leerDeFichero.close();
+            escribirEnFichero.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Fichero no encontrado");
+        } catch (IOException e) {
+            System.out.println("Error de entrada y salida");
+        }
+        
+        cerrar(leerDeFichero);
+        cerrar(escribirEnFichero);
+    }
+
+    public static void cerrar(AutoCloseable objetoCerrar) {
+        try{
+            if (objetoCerrar != null) {
+                objetoCerrar.close();
+            }
+        } catch (Exception e) {}
+    }
+}

@@ -1,4 +1,4 @@
-package unidad08.clasePrintWriter;
+package unidad08.ejemplos.clasePrintWriter;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

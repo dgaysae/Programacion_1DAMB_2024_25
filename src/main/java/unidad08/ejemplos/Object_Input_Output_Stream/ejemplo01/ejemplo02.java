@@ -1,4 +1,4 @@
-package unidad08.Object_Input_Output_Stream;
+package unidad08.ejemplos.Object_Input_Output_Stream.ejemplo01;
 
 import java.io.BufferedInputStream;
 import java.io.EOFException;

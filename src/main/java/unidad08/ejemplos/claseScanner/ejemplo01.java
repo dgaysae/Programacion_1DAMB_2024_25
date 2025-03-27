@@ -1,4 +1,4 @@
-package unidad08.claseScanner;
+package unidad08.ejemplos.claseScanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
