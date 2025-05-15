@@ -1,4 +1,4 @@
-package unidad08.ejemplos.objetos;
+package unidad08.ejemplos.Object_Input_Output_Stream.ejemplo02;
 
 import java.io.EOFException;
 import java.io.File;

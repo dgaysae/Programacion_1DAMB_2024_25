@@ -1,4 +1,4 @@
-package unidad08.Data_Input_Output_Stream;
+package unidad08.ejemplos.Data_Input_Output_Stream;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
