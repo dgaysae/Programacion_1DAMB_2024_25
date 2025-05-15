@@ -42,7 +42,8 @@ public class Main04ComboBox implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getActionCommand().equals("acCombo")) {
+//        if (ae.getActionCommand().equals("acCombo")) {
+        if (ae.getSource() == listaDesplegable01) {
             JComboBox combo = (JComboBox) ae.getSource();
             System.out.println("Item seleccionado: " + combo.getSelectedItem());
             System.out.println("Item seleccionado: " + combo.getSelectedIndex());

@@ -32,7 +32,7 @@ public class Main01 {
         ButtonGroup opciones = new ButtonGroup();
         opciones.add(rbOpcion1);
         opciones.add(rbOpcion2);
-                
+
         etiqueta1.setBounds(10, 10, 100, 20);
         etiqueta2.setBounds(10, 35, 100, 20);
         tfNombre.setBounds(115, 35, 100, 20);
@@ -60,7 +60,7 @@ public class Main01 {
         ventana.add(cbComida3);
         ventana.add(rbOpcion1);
         ventana.add(rbOpcion2);
-        
+
         ventana.setVisible(true);
     }
 

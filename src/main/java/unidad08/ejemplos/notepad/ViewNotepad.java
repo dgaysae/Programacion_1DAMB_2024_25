@@ -1,21 +1,10 @@
 package unidad08.ejemplos.notepad;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
+import java.io.*;
+import javax.swing.*;
 
 /**
  *
@@ -29,7 +18,9 @@ public class ViewNotepad extends JFrame implements ActionListener {
     JMenuItem jmiSaveAs = new JMenuItem("Save as...");
     JMenuItem jmiExit = new JMenuItem("Exit");
     JTextArea jtaTexto = new JTextArea();
-    File ficheroCargado = new File("");
+    JLabel jlRuta = new JLabel();
+    JLabel jlEstado = new JLabel();
+    File ficheroCargado = null;
     
     public ViewNotepad(String title) {
         super(title);
@@ -55,6 +46,12 @@ public class ViewNotepad extends JFrame implements ActionListener {
         jmFile.add(jmiSave);
         jmFile.add(jmiSaveAs);
         jmFile.add(jmiExit);
+
+        jlRuta.setHorizontalAlignment(SwingConstants.LEFT);
+        jlEstado.setHorizontalAlignment(SwingConstants.RIGHT);
+        jlEstado.setAlignmentX(JLabel.RIGHT);
+
+        add(new HorizontalPanel(jlRuta, jlEstado), BorderLayout.PAGE_END);
     }
 
     private void setEventComponents() {
@@ -70,46 +67,74 @@ public class ViewNotepad extends JFrame implements ActionListener {
         if (ae.getSource() == jmiExit) {
             System.exit(0);
         }
-        else if (ae.getSource() == jmiOpen) {
-            File fichero = getFile();
-            fromFileToScreen(fichero);
+
+
+        if (ae.getSource() == jmiOpen) {
+            openTextFile();
+            return;
         }
-        else if (ae.getSource() == jmiSave) {
-            File fichero = getFile();
-            fromFileToScreen(fichero);
+        boolean ficheroNuevo = (ae.getSource() == jmiSaveAs)
+                || (ae.getSource() == jmiSave) && (ficheroCargado == null);
+
+        saveFile(ficheroNuevo);
+    }
+
+    private void setEstado(EstadosFichero estado) {
+        jlEstado.setText(estado.toString());
+    }
+
+    private void setRuta() {
+        if (ficheroCargado != null) {
+            JOptionPane.showMessageDialog(this, ficheroCargado.getAbsolutePath());
+            jlRuta.setText(ficheroCargado.getAbsolutePath());
+        }
+        else {
+            jlRuta.setText("");
         }
     }
 
-    private File getFile() {
-        JFileChooser fileChooser = new JFileChooser();
-        int seleccion = fileChooser.showOpenDialog(this);
-        if (seleccion != JFileChooser.APPROVE_OPTION)
-            return null;
-        
-        ficheroCargado = fileChooser.getSelectedFile();
-        if (!ficheroCargado.exists()) ficheroCargado = new File("");
-        
-        return ficheroCargado;
+    private void openTextFile() {
+        setFile(true);
+        fromFileToScreen();
+        setEstado(EstadosFichero.FICHERO_ABIERTO);
     }
-    
+
+    private void saveFile(boolean newFile){
+        if (newFile) {
+            setFile(false);
+        }
+        fromScreenToFile();
+        setEstado(EstadosFichero.FICHERO_GUARDADO);
+    }
+
+    private void setFile(boolean openFile) {
+        JFileChooser fileChooser = new JFileChooser();
+        int seleccion = openFile
+                ? fileChooser.showOpenDialog(this)
+                : fileChooser.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            ficheroCargado = fileChooser.getSelectedFile();
+            if (!ficheroCargado.exists() && openFile) ficheroCargado = null;
+        }
+        else {
+            ficheroCargado = null;
+        }
+
+        setRuta();
+    }
+
     /**
      * Limpia el área de texto del bloc de notas.
      */
     private void emptyTextFile() {
         jtaTexto.setText("");
     }
-    
-    private void fromFileToScreen(File fichero) {
-        String texto = "";
-        emptyTextFile();
-        try (BufferedReader leerDeFichero = new BufferedReader(new FileReader(fichero))) {
-            System.out.println("Fichero: " + fichero.getAbsolutePath());
-            while( (texto = leerDeFichero.readLine()) != null ) {
-                jtaTexto.append(texto);
-                jtaTexto.append("\n");
-            }
+
+    private void fromScreenToFile() {
+        try (PrintWriter escribirEnFichero = new PrintWriter(new FileWriter(ficheroCargado))) {
+            escribirEnFichero.write(jtaTexto.getText());
         }
-        catch (FileNotFoundException e) {
+        catch (FileNotFoundException | NullPointerException e) {
             JOptionPane.showMessageDialog(
                     this,
                     "Fichero no encontrado",
@@ -124,6 +149,33 @@ public class ViewNotepad extends JFrame implements ActionListener {
                     "Error",
                     JOptionPane.ERROR_MESSAGE
             );
-        }        
+        }    }
+    
+    private void fromFileToScreen() {
+        emptyTextFile();
+        try (BufferedReader leerDeFichero = new BufferedReader(new FileReader(ficheroCargado))) {
+            String texto;
+            System.out.println("Fichero: " + ficheroCargado.getAbsolutePath());
+            while( (texto = leerDeFichero.readLine()) != null ) {
+                jtaTexto.append(texto);
+                jtaTexto.append("\n");
+            }
+        }
+        catch (FileNotFoundException | NullPointerException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Fichero no encontrado",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Error leyendo de fichero",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
     }
 }

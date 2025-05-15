@@ -11,13 +11,13 @@ public class Ventana extends JFrame {
     private JLabel lbEtiqueta;
     private JTextField tfTexto;
     private JButton btBoton, btBoton2;
+    private CampoTexto ctNombre;
     
     public Ventana(String title) {
         setTitle(title);
         initVentana();
-        setVisible(true);
     }
-    
+
     public JLabel getEtiqueta() {
         return lbEtiqueta;
     }
@@ -49,11 +49,19 @@ public class Ventana extends JFrame {
         
         btBoton2 = new JButton("Aceptar otra vez");
 
+        ctNombre = new CampoTexto("Nombre: ", 15);
+        ctNombre.setText("Bel Guerrero Frías");
+
+
         VerticalPanel verticalPanel = new VerticalPanel(lbEtiqueta, tfTexto);
         verticalPanel.setBorder("Panel con título y borde:");
         add(verticalPanel);
 
         verticalPanel = new VerticalPanel(btBoton, btBoton2);
+        verticalPanel.setMargins();
+        add(verticalPanel);
+
+        verticalPanel = new VerticalPanel(ctNombre);
         verticalPanel.setMargins();
         add(verticalPanel);
 
