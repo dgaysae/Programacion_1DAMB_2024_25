@@ -1,6 +1,7 @@
-package unidad09.model.dao;
+package unidad09.model.dao.mysql;
 
 import unidad09.model.Curso;
+import unidad09.model.dao.CursosDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

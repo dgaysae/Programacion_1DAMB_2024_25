@@ -1,7 +1,7 @@
 package unidad09;
 
 import unidad09.model.Curso;
-import unidad09.model.dao.CursosDaoMySql;
+import unidad09.model.dao.mysql.CursosDaoMySql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
