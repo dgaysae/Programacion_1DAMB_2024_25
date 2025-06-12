@@ -1,6 +1,8 @@
 package unidad06.ejemplos.mvc.ejemplo02.views;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -45,6 +47,12 @@ public class ViewPersonas extends JFrame {
         miGuardar = new JMenuItem("Guardar");
         miSalir = new JMenuItem("Salir");
         miSalir.setActionCommand("acExit");
+        miSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         
         mArchivo.add(miAbrir);
         mArchivo.add(miGuardar);

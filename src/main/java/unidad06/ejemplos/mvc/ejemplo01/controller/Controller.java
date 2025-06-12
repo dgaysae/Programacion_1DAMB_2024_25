@@ -13,5 +13,6 @@ public class Controller {
     public Controller() {
         ventana = new Ventana("Ventana MVC");
         ventana.getEtiqueta().setText("Controller rules!");
+        ventana.setVisible(true);
     }
 }
