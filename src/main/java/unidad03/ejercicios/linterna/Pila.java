@@ -8,19 +8,29 @@ package unidad03.ejercicios.linterna;
  */
 public class Pila {
 
-    // Voltaje en voltios (V):
+    /**
+     * Voltaje de la pila (se mide en V)
+     */
     private double voltaje;
 
-    // Capacidad en amperios (Ah)
+    /**
+     * Capacidad de la pila (se mide en Ah)
+     */
     private double capacidad;
 
-    // Ambas se miden en Wh
+    /**
+     * Energía de la pila en cada momento (se mide en Wh).
+     */
     private double energiaActual;
+
+    /**
+     * Energía máxima que tiene la pila (se mide en Wh).
+     */
     private final double ENERGIA_TOTAL;
 
     public Pila(double V, double mAh) {
         this.voltaje = Math.abs(V);
-        this.capacidad = Math.abs(mAh / 1000);
+        this.capacidad = Math.abs(mAh / 1000);  // pasamos de mAh a Ah
         ENERGIA_TOTAL = this.voltaje * this.capacidad;
         energiaActual = ENERGIA_TOTAL;
     }
