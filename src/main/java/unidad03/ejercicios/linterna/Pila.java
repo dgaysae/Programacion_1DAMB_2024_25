@@ -4,6 +4,7 @@ package unidad03.ejercicios.linterna;
  * Este objeto representa una pila eléctrica.
  * La pila contiene una cantidad concreta de energía y se la proporcionará
  * a quien se la solicite.
+ *
  * @author diego
  */
 public class Pila {
