@@ -1,5 +1,10 @@
 package unidad05.enumerados.ejemplo04;
 
+/**
+ * <p>Este enum gestiona internamente la validación que nos permitirá saber los parámetros que admite el método
+ * calcularArea para cada figura geométrica.</p>
+ * @author diego
+ */
 public enum FiguraGeometrica {
     CIRCUNFERENCIA(1) {
         @Override
@@ -59,8 +64,9 @@ public enum FiguraGeometrica {
     // public abstract double calcularArea(double[] dimensiones);
 
     /**
+     * **************** ERROR ****************
      * Este método no tiene sentido, ya que podría aplicarlo a cualquier
-     * figura geométrica del enum (círculo, rectángulo, etc.).
+     * figura geométrica del enum (CIRCUNFERENCIA, RECTANGULO, etc.).
      * Además, no tiene sentido crear una función por cada constante.
      * @param lado
      * @return
@@ -72,6 +78,7 @@ public enum FiguraGeometrica {
     }
 
     /**
+     * **************** ERROR ****************
      * Este método no tiene sentido, ya que podría aplicarlo a cualquier
      * figura geométrica del enum (círculo, rectángulo, etc.).
      * Además, no tiene sentido crear una función por cada constante.
