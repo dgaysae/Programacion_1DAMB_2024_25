@@ -51,6 +51,8 @@ public class Cola<T> {
      */
     private Nodo cabecera = null;
 
+    private Integer size = 0;
+
     /**
      * Introduce un nuevo nodo en la cola.
      * Si la cola está vacía, dicho nodo será el primer nodo, al que apuntan
@@ -71,6 +73,7 @@ public class Cola<T> {
             nuevoNodo.siguiente = cola;
             cola = nuevoNodo;
         }
+        size++;
     }
 
     /**
@@ -104,6 +107,9 @@ public class Cola<T> {
         }
         nodoAnterior.siguiente = null;
         cabecera = nodoAnterior;
+
+        size--;
+
         return nodoAux.dato;
     }
 
