@@ -5,18 +5,21 @@ import java.util.List;
 
 /**
  * <p>
- *     Una cola es una estructura FIFO (First In, First Out). Esto es, el primer elemento
- *     en entrar en la cola es el primero que sale.<br>
+ *     Una cola es una estructura dinámica de tipo FIFO (First In, First Out). Esto es:
+ *     <ul>
+ *         <li>Es dinámica porque puede cambiar su tamaño en tiempo de ejecución.</li>
+ *         <li>Es FIFO porque el primer elemento en entrar en la cola es el primero que sale.</li>
+ *     </ul>
  *     En otras palabras, las inserciones se realizan por un extremo (cola) y las eliminaciones
  *     por el opuesto (cabecera).
  * </p>
  * <p>
  *     Las operaciones básicas en una cola son:
  *     <ul>
- *         <li>Enqueue (encolar): añade un elemento al final (cola) de la cola.</li>
- *         <li>Dequeue (desencolar): extrae y devuelve el elemento que se encuentra en la cabecera.</li>
- *         <li>Front (frente): devuelve el elemento de la cabecera sin eliminarlo.</li>
- *         <li>isEmpty (vacía): verifica si la cola está totalmente desprovista de elementos.</li>
+ *         <li><strong>Enqueue</strong> (encolar): añade un elemento al final (cola) de la cola.</li>
+ *         <li><strong>Dequeue</strong> (desencolar): extrae y devuelve el elemento que se encuentra en la cabecera.</li>
+ *         <li><strong>Front</strong> (frente): devuelve el elemento de la cabecera sin eliminarlo.</li>
+ *         <li><strong>isEmpty</strong> (vacía): verifica si la cola está totalmente desprovista de elementos.</li>
  *     </ul>
  * </p>
  * <p>
@@ -24,9 +27,15 @@ import java.util.List;
  *     Se ha hecho con <strong>genéricos</strong>, por lo que permite introducir cualquier tipo de objeto.
  * </p>
  * @param <T> Admitirá cualquier objeto.
+ * @see Pila
  */
 public class Cola<T> {
 
+    /**
+     * Las clases sirven para permitirnos construir tipos de datos complejos.
+     * Este es el caso, donde cada nodo de la cola se compondrá de un dato y un
+     * puntero al siguiente elemento de la cola.
+     */
     class Nodo {
         T dato;
         Nodo siguiente;
@@ -64,6 +73,10 @@ public class Cola<T> {
         }
     }
 
+    /**
+     * Indica si no hay elementos en la cola.
+     * @return true si la cola está vacía.
+     */
     public boolean isEmpty() {
         return (cola == null);
     }

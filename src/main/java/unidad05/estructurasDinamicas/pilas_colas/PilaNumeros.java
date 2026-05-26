@@ -17,23 +17,34 @@ import java.util.List;
  *         <li>push (apilar): agrega un nuevo elemento en la cima de la pila.</li>
  *         <li>pop (desapilar): elimina y devuelve el elemento que se encuentra en la cima.</li>
  *         <li>peek / top (cima): devuelve el elemento que está en la cima sin eliminarlo de la pila.</li>
- *         <li>isEmpty (vacía): verifica si la cola está totalmente desprovista de elementos.</li>
+ *         <li>isEmpty (vacía): comprueba si la pila está vacía.</li>
  *     </ul>
  * </p>
  * <p>
- *     La pila de este ejemplo se compone de un nodo que contiene un dato y un puntero al siguiente elemento.<br>
- *     Se ha hecho con <strong>genéricos</strong>, por lo que permite introducir cualquier tipo de objeto.
+ *     La pila de este ejemplo se compone de un nodo que contiene un dato numérico Integer y un puntero al
+ *     siguiente elemento.<br>
  * </p>
- * @param <T> Admitirá cualquier objeto.
  */
-public class Pila<T> {
+public class PilaNumeros {
 
+    /**
+     * Las clases sirven para permitirnos construir tipos de datos complejos.
+     * Este es el caso, donde cada nodo de la cola se compondrá de un número
+     * entero y un puntero al siguiente elemento de la cola.
+     */
     class Nodo {
-        T dato;
+        Integer dato;
         Nodo siguiente;
     }
 
+    /**
+     * Variable que apunta al nodo que hay en la cima de la cola.
+     */
     private Nodo cima = null;
+
+    /**
+     * Tamaño de la pila.
+     */
     private Integer size = 0;
 
     /**
@@ -46,9 +57,9 @@ public class Pila<T> {
 
     /**
      * Agrega un nuevo elemento en la cima de la pila.
-     * @param nuevoNumero
+     * @param nuevoNumero Número que se incluirá en el nodo.
      */
-    public void push(T nuevoNumero) {
+    public void push(Integer nuevoNumero) {
         Nodo nuevoNodo = new Nodo();
         nuevoNodo.dato = nuevoNumero;
 
@@ -62,18 +73,26 @@ public class Pila<T> {
         size++;
     }
 
-    public T pop() {
+    /**
+     * Elimina y devuelve el elemento que se encuentra en la cima.
+     * @return Número incluido en el nodo.
+     */
+    public Integer pop() {
         if (isEmpty()) return null;
 
         Nodo nodoAux = cima.siguiente;
-        T numero = cima.dato;
+        Integer numero = cima.dato;
         cima = nodoAux;
         size--;
 
         return numero;
     }
 
-    public T peek() {
+    /**
+     * Devuelve el elemento que está en la cima sin eliminarlo de la pila.
+     * @return Número del último nodo.
+     */
+    public Integer peek() {
         if (isEmpty()) return null;
 
         return cima.dato;
@@ -84,10 +103,13 @@ public class Pila<T> {
     }
 
     public void print() {
+        List<Integer> lista = new ArrayList<>();
         Nodo nodoAux = cima;
         while(nodoAux != null) {
-            System.out.println(nodoAux.dato);
+            lista.add(nodoAux.dato);
             nodoAux = nodoAux.siguiente;
         }
+
+        System.out.println(lista);
     }
 }
